@@ -1,1 +1,2 @@
-Permite al usuario agregar títulos a su lista de favoritos para acceder rápidamente a ellos.
+El usuario puede crearse varias listas o catálogos propios añadiendo películas según este lo crea conveniente, generando así una biblioteca personalizada.
+
