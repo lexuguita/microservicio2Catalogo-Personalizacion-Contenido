@@ -1,0 +1,74 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Personalización de Favoritos",
+    "description": "Permite al usuario agregar títulos a su lista de favoritos.",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "http://localhost:9003"
+    }
+  ],
+  "paths": {
+    "/catalogo/favoritos/{usuarioId}": {
+      "post": {
+        "summary": "Personalización de favoritos",
+        "description": "Permite al usuario agregar títulos a su lista de favoritos.",
+        "parameters": [
+          {
+            "name": "usuarioId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Identificador único del usuario."
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "contenidoId": {
+                    "type": "string",
+                    "description": "ID del contenido a agregar a favoritos."
+                  }
+                },
+                "required": [
+                  "contenidoId"
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Título agregado a favoritos.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string"
+                    },
+                    "usuarioId": {
+                      "type": "string"
+                    },
+                    "contenidoId": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
